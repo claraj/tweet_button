@@ -5,7 +5,7 @@
 
       <meta name="twitter:card" content="summary"></meta>
       <meta name="twitter:title" content="I'm a tweet">
-      <meta name="twitter:image" content="https://claraj.github.io/tweet_button/cat_square.jpg"> 
+      <meta name="twitter:image" content="https://claraj.github.io/tweet_button/cat.jpg"> 
       <meta name="twitter:title" content="Cat Page from GitHub">
       <meta name="twitter:description" content="A summary tweet with image. This page has a cat image. This cat picture is from Unsplash, which is a very useful site for free images.">
 
@@ -23,21 +23,7 @@
     Tweet</a>
 
     <p>This image will be used as the small image shown in the card.</p>
-    <img src="cat_square.jpg">
-
-    <script> 
-
-        // figure out this page URL, the image src, combine to produce the 
-        // address of the image, and set that as the content for the meta name="image" tag.
-        let imgURLParts = window.location.href.split('/')
-        imgURLParts.pop()
-        let img_src = document.querySelector('img').getAttribute('src')
-        let imgURL = imgURLParts.join('/') + '/' + img_src
-        let meta = document.querySelector('meta[name="twitter:image"]')
-        meta.setAttribute('content', imgURL)
-
-    </script>
-
+    <img src="cat.jpg">
 
     <!-- Twitter script to enable Tweet button -->
     <!-- https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview -->
