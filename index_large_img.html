@@ -1,0 +1,56 @@
+<html>
+    <head>
+
+        <meta name="twitter:card" content="summary_large_image"></meta>
+        <meta name="twitter:title" content="I'm a tweet">
+        <meta name="twitter:image" content="https://claraj.github.io/tweet_button/cat.jpg">
+        <meta name="twitter:title" content="Cat Page from GitHub">
+        <meta name="twitter:description" content="A page with a cat image. This cat picture is from Unsplash, which is a very useful site for free images.">
+
+    </head>
+
+    <body>
+
+        <h1>A page with a tweet button</h1>
+
+        <p>text text text text text.</p>
+
+        <a class="twitter-share-button"
+            href="https://twitter.com/intent/tweet?text=Hello%20world"
+            data-size="large">
+        Tweet</a>
+
+        <img src="cat.jpg">
+
+        <script> 
+
+            let imgURLParts = window.location.href.split('/')
+            imgURLParts.pop()
+            let img_src = document.querySelector('img').getAttribute('src')
+            let imgURL = imgURLParts.join('/') + '/' + img_src
+            let meta = document.querySelector('meta[name="twitter:image"]')
+            meta.setAttribute('content', imgURL)
+
+        </script>
+
+
+<!-- https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview -->
+<script>window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
+  
+    return t;
+  }(document, "script", "twitter-wjs"));</script>
+
+    </body>
+</html>
