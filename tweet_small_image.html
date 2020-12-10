@@ -1,0 +1,62 @@
+<html>
+  <head>
+
+    <title>Summary Tweet Card with Image</title>
+
+      <meta name="twitter:card" content="summary"></meta>
+      <meta name="twitter:title" content="I'm a tweet">
+      <meta name="twitter:image" content="">  <!-- filled in with JS, but can be coded into the page too -->
+      <meta name="twitter:title" content="Cat Page from GitHub">
+      <meta name="twitter:description" content="A summary tweet with image. This page has a cat image. This cat picture is from Unsplash, which is a very useful site for free images.">
+
+  </head>
+
+  <body>
+
+    <h1>Summary Card Tweet</h1>
+
+    <p>When tweeting this page, there will be a summary card with small image.</p>
+
+    <a class="twitter-share-button"
+        href="https://twitter.com/intent/tweet?text=Hello%20world"
+        data-size="large">
+    Tweet</a>
+
+    <p>This image will be used as the small image shown in the card.</p>
+    <img src="cat.jpg">
+
+    <script> 
+
+        // figure out this page URL, the image src, combine to produce the 
+        // address of the image, and set that as the content for the meta name="image" tag.
+        let imgURLParts = window.location.href.split('/')
+        imgURLParts.pop()
+        let img_src = document.querySelector('img').getAttribute('src')
+        let imgURL = imgURLParts.join('/') + '/' + img_src
+        let meta = document.querySelector('meta[name="twitter:image"]')
+        meta.setAttribute('content', imgURL)
+
+    </script>
+
+
+    <!-- Twitter script to enable Tweet button -->
+    <!-- https://developer.twitter.com/en/docs/twitter-for-websites/tweet-button/overview -->
+    <script>window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+
+      return t;
+    }(document, "script", "twitter-wjs"));</script>
+
+  </body>
+</html>
