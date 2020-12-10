@@ -20,14 +20,14 @@
             data-size="large">
         Tweet</a>
 
-        <img src="cat.jpg">
+        <img src="cat_square.jpeg">
 
         <script> 
 
             let imgURLParts = window.location.href.split('/')
             imgURLParts.pop()
-            
-            let imgURL = imgURLParts.join('/') + '/cat.jpg'
+            let img_src = document.querySelector('img').getAttribute('src')
+            let imgURL = imgURLParts.join('/') + '/' + img_src
             let meta = document.querySelector('meta[name="twitter:image"]')
             meta.setAttribute('content', imgURL)
 
